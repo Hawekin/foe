@@ -11,3 +11,4 @@ build/*
 .project
 desktop.ini
 node_modules
+package-lock.json
