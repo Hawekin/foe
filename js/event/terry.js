@@ -409,7 +409,12 @@ Scenes.Terry.Appearance = function() {
 		hishers : terry.hishers(),
 		trueGender : Gender.Desc(terry.Gender()),
 		tbreastDesc : function() { return terry.FirstBreastRow().Short(); },
-		tcockDesc : function() { return terry.MultiCockDesc(); }
+		tcockDesc : function() { return terry.MultiCockDesc(); },
+		tcockAdj : terry.FirstCock().Desc().adj,
+		tcockLen : terry.FirstCock().Desc().len,
+		tcockThi : terry.FirstCock().Desc().thickness,
+		tcockRace : terry.FirstCock().race.name,
+		tballsDesc : terry.Balls().Short()
 	};
 	
 	Text.Clear();
@@ -539,12 +544,16 @@ Scenes.Terry.Appearance = function() {
 	Text.NL();
 	if(terry.FirstCock()) {
 		if(terry.HorseCock()) {
-			Text.Add("A rather stark contrast to the rest of the [foxvixen]’s form, between Terry’s thighs rests a proud piece of stallion-cock, far larger than [hisher] old dick. Mottled brown in color, its flaccid state boasts an area of nine inches long and one and a half inches thick. At full mast, however, it grows even bigger, bringing home a massive thirteen inches in length and two and a half inches thick.", parse);
+			Text.Add("A rather stark contrast to the rest of the [foxvixen]’s form, between Terry’s thighs rests a proud piece of stallion-cock. Mottled brown in color, its flaccid state boasts an area of nine inches long and one and a half inches thick. At full mast, however, it grows even bigger, bringing home a massive thirteen inches in length and two and a half inches thick.", parse);
 			Text.NL();
-			Text.Add("It’s a lot more sensitive than [hisher] old fox-prick, and [heshe] can get going with just a little attention there. Despite the new form, it hasn’t entirely changed from before; [heshe] still has a knot at the base of [hisher] cock, though it’s much bigger than it used to be. [HisHer] balls have practically doubled in size, heavy with churning loads of cum. Sometimes you wonder if it’s even possible for the [foxvixen] to run dry...", parse);
+			Text.Add("Despite the new form, it hasn’t entirely changed from before; [heshe] still has a knot at the base of [hisher] cock, though it’s much bigger than it used to be. [HisHer] balls have increased in size, heavy and churning with loads of cum. Sometimes you wonder if it’s even possible for the [foxvixen] to run dry...", parse);
 		}
 		else
-			Text.Add("Between [hisher] thighs lies [hisher] dainty little vulpine dick. When fully erect, it’s a below-average red piece of meat, four inches long and an inch thick. Below it lies a pair of pretty little trappy-balls that cling closely to [hisher] crotch. It’s no surprise that [heshe] can disguise [himher]self as a normal woman so easily. Even when it’s fully erect, it looks too cute to be on a guy.", parse);
+			Text.Add("Between [hisher] thighs lies [hisher] [tcockAdj] [tcockRace] dick. When fully erect it's [tcockLen] long and [tcockThi] thick. Below it you see [hisher] [tballsDesc] hang below [hisher] crotch.", parse);
+			if(terry.FirstCock().length.base < 13) {
+				Text.NL();
+				Text.Add("It’s no surprise that [heshe] can disguise [himher]self as a normal woman so easily. Even when it’s fully erect, it looks too cute to be on a guy.", parse);
+			}
 		Text.NL();
 	}
 	if(terry.FirstVag()) {
