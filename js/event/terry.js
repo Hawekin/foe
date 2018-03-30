@@ -398,6 +398,12 @@ Terry.prototype.Interact = function(switchSpot) {
 	Scenes.Terry.Prompt();
 }
 
+Scenes.Terry.AppearancePlus = function() {	
+	Text.Clear();
+	terry.PrintDescription();
+	Text.Flush();
+}
+
 Scenes.Terry.Appearance = function() {
 	var parse = {
 		foxvixen : terry.mfPronoun("fox", "vixen"),
@@ -590,6 +596,11 @@ Scenes.Terry.Prompt = function() {
 	options.push({ nameStr : "Appearance",
 		func : Scenes.Terry.Appearance, enabled : true,
 		tooltip : "Take a closer look."
+	});
+		//Standard description
+	options.push({ nameStr : "Appearance++",
+		func : Scenes.Terry.AppearancePlus, enabled : true,
+		tooltip : "Take a normative look at Terry."
 	});
 	options.push({ nameStr : "Talk",
 		func : function() {
