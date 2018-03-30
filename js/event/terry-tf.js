@@ -5,7 +5,7 @@
 Terry.prototype.ItemUsable = function(item) {
 	return true;
 }
-
+/*
 Terry.prototype.ItemUse = function(item, backPrompt) {
 	if(item.isTF) {
 		var parse = {
@@ -41,7 +41,7 @@ Terry.prototype.ItemUse = function(item, backPrompt) {
 	else
 		return {grab : false, consume : true};
 }
-
+*/
 // Need if(terry.flags["TF"] & Terry.TF.TriedItem && !(terry.flags["TF"] & Terry.TF.Rosalin))
 Scenes.Terry.RosalinTF = function() {
 	var parse = {
