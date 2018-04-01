@@ -415,14 +415,17 @@ Scenes.Terry.Appearance = function() {
 		hishers : terry.hishers(),
 		trueGender : Gender.Desc(terry.Gender()),
 		tRace	: terry.Race().name,
-		tRaceNoun	: function() {return terry.body.RaceStr(); },
+		tRaceNoun	: function() { return terry.body.RaceStr(); },
+		tHairCol	: Color.Desc(terry.body.head.hair.color),
+		tEyeCol		: Color.Desc(terry.body.head.eyes.color),
+		tEarDesc	: function() { return terry.body.EarDesc(); },
 		tbreastDesc : function() { return terry.FirstBreastRow().Short(); },
 		tcockDesc : function() { return terry.MultiCockDesc(); },
-		tcockAdj : function() {return terry.FirstCock().Desc().adj; },
+		tcockAdj : function() { return terry.FirstCock().Desc().adj; },
 		tcockLen : terry.FirstCock().Desc().len,
 		tcockThi : terry.FirstCock().Desc().thickness,
 		tcockRace : terry.FirstCock().race.name,
-		tballsDesc : function() {return terry.Balls().Short(); }
+		tballsDesc : function() { return terry.Balls().Short(); }
 	};
 	
 	Text.Clear();
@@ -460,7 +463,9 @@ Scenes.Terry.Appearance = function() {
 		}
 	}
 	Text.NL();
-	Text.Add(" Two small, delicate vulpine ears sit atop [hisher] head, practically swallowed by a lush mane of crimson fur. Well-groomed and clean, Terry doesn’t style [hisher] hair much beyond making a rough effort to tie it back into a ponytail. A prominent forelock drapes [hisher] face, falling almost down onto [hisher] dainty little black nose. Beautiful ocean-blue eyes stare out from amidst the hair, always surveying [hisher] surroundings.", parse);
+	parse["crimson"] = terry.body.head.hair.color == Color.red ? " crimson" : Text.		Parse("[tHairCol]", parse);
+	parse["ocean-blue"] = terry.body.head.eyes.color == Color.blue ? " ocean-blue" : 	Text.Parse("[tEyeCol]", parse);
+	Text.Add(" Two small, delicate [tEarDesc]s sit atop [hisher] head, practically swallowed by a lush mane of [crimson] fur. Well-groomed and clean, Terry doesn’t style [hisher] hair much beyond making a rough effort to tie it back into a ponytail. A prominent forelock drapes [hisher] face, falling almost down onto [hisher] dainty little black nose. Beautiful [ocean-blue] eyes stare out from amidst the hair, always surveying [hisher] surroundings.", parse);
 	Text.NL();
 	if(terry.Relation() < 30)
 		Text.Add("Once [heshe] realizes you’re checking [himher] out, Terry immediately looks away with an indignant huff. Seems like [heshe]’s not too comfortable with your inspection.", parse);
