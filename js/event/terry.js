@@ -414,29 +414,52 @@ Scenes.Terry.Appearance = function() {
 		himher  : terry.himher(),
 		hishers : terry.hishers(),
 		trueGender : Gender.Desc(terry.Gender()),
+		tRace	: terry.Race().name,
+		tRaceNoun	: function() {return terry.body.RaceStr(); },
 		tbreastDesc : function() { return terry.FirstBreastRow().Short(); },
 		tcockDesc : function() { return terry.MultiCockDesc(); },
-		tcockAdj : terry.FirstCock().Desc().adj,
+		tcockAdj : function() {return terry.FirstCock().Desc().adj; },
 		tcockLen : terry.FirstCock().Desc().len,
 		tcockThi : terry.FirstCock().Desc().thickness,
 		tcockRace : terry.FirstCock().race.name,
-		tballsDesc : terry.Balls().Short()
+		tballsDesc : function() {return terry.Balls().Short(); }
 	};
 	
 	Text.Clear();
 	Text.Add("You take a closer look at Terry.", parse);
 	Text.NL();
-	Text.Add("Terry is a [trueGender] fox-morph, a former thief that you 'rescued' from the jail in Rigard.", parse);
+	Text.Add("Terry is a [trueGender] [tRace], a former thief that you 'rescued' from the jail in Rigard.", parse);
 	if(terry.Gender() == Gender.male && terry.PronounGender() != Gender.male)
 		Text.Add(" Though he’s really a male, you chose to refer to him as a 'she'.", parse);
 	else if(terry.Gender() == Gender.female && terry.PronounGender() != Gender.female)
 		Text.Add(" Though she’s really a female, you chose to refer to her as a 'he'.", parse);
+	if(terry.Femininity() >= 0.6) {
+		Text.NL();
+		Text.Add(" Terry’s [tRaceNoun] features are unquestionably feminine; ", parse);
+		if(terry.Gender() == Gender.male)
+			Text.Add("despite [hisher] birth gender, [heshe] can easily pass as a very fetching young [tRace]-woman with only a little effort on [hisher] part.", parse);
+		else
+			Text.Add("which is only fitting, seeing as how [heshe]’s a very lovely [foxvixen] [trueGender].", parse);
+	} else if (terry.Femininity() >= 0.2 && terry.Femininity() < 0.6) {
+		Text.NL();
+		Text.Add(" Terry’s bodily features has become less feminine since you first met [himher].", parse);
+		if(terry.Gender() == Gender.male){
+			Text.Add(" Thus making it is less likely that Terry will be mistaken for a female.", parse);
+		}
+	} else if (terry.Femininity() >= -0.6 && terry.Femininity() < 0.2) {
+		Text.NL();
+		Text.Add(" Terry’s bodily features has become much less feminine since you first met [himher].", parse);
+		if(terry.Gender() == Gender.male){
+			Text.Add(" It would be almost impossible for someone to mistake Terry for anything but male.", parse);
+		}
+	} else {
+		Text.NL();
+		Text.Add(" Terry has become the definition of a masculine [tRace]. All the feminine features since you first met [himher] has completely disappeared.", parse);
+		if(terry.Gender() == Gender.male){
+			Text.Add(" You can't help but see that Terry seems rather content in [hishers] masculine form.", parse);
+		}
+	}
 	Text.NL();
-	Text.Add("Terry’s vulpine features are unquestionably feminine; ", parse);
-	if(terry.Gender() == Gender.male)
-		Text.Add("despite [hisher] birth gender, [heshe] can easily pass as a very fetching young fox-woman with only a little effort on [hisher] part.", parse);
-	else
-		Text.Add("which is only fitting, seeing as how [heshe]’s a very lovely [foxvixen] [trueGender].", parse);
 	Text.Add(" Two small, delicate vulpine ears sit atop [hisher] head, practically swallowed by a lush mane of crimson fur. Well-groomed and clean, Terry doesn’t style [hisher] hair much beyond making a rough effort to tie it back into a ponytail. A prominent forelock drapes [hisher] face, falling almost down onto [hisher] dainty little black nose. Beautiful ocean-blue eyes stare out from amidst the hair, always surveying [hisher] surroundings.", parse);
 	Text.NL();
 	if(terry.Relation() < 30)
