@@ -657,7 +657,26 @@ Body.prototype.StomachDesc = function(bellysize) {
 		nouns.push("abs");
 	var noun = _.sample(nouns);
 	
-	// Belly size
+	var adj = this.StomachAdj();
+	
+	var size = this.entity.PregHandler().BellySize();
+	if(size < 0.2) {
+		if(Math.random() < 0.2) noun = adj + noun;
+	}
+	else if(size < 0.8) {
+		if(Math.random() < 0.5) noun = adj + noun;
+	}
+	else if(size < 1.6) {
+		if(Math.random() < 0.8) noun = adj + noun;
+	}
+	else {
+		noun = adj + noun;
+	}
+	return noun;
+}
+
+Body.prototype.StomachAdj = function(bellysize){
+	// Belly sizes
 	var adjs = [];
 	if(this.entity) {
 		var size = this.entity.PregHandler().BellySize();
@@ -706,22 +725,9 @@ Body.prototype.StomachDesc = function(bellysize) {
 			adjs.push("impossibly pregnant");
 			adjs.push("almost immobilizing");
 		}
-		
-		var adj = _.sample(adjs) + " ";
-		if(size < 0.2) {
-			if(Math.random() < 0.2) noun = adj + noun;
-		}
-		else if(size < 0.8) {
-			if(Math.random() < 0.5) noun = adj + noun;
-		}
-		else if(size < 1.6) {
-			if(Math.random() < 0.8) noun = adj + noun;
-		}
-		else {
-			noun = adj + noun;
-		}
 	}
+	var adj = _.sample(adjs) + " ";
 	
-	return noun;
+	return adj;
 }
 
