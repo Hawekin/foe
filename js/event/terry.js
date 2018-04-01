@@ -52,12 +52,16 @@ function Terry(storage) {
 	this.body.muscleTone.base = 0.1;
 	this.body.femininity.base = 0.9;
 	this.Butt().buttSize.base = 3;
+	this.body.torso.hipSize.base = 3;
 	this.SetSkinColor(Color.gold);
 	this.SetHairColor(Color.red);
+	this.body.head.hair.length.base = 65;
+	this.body.head.hair.style = HairStyle.ponytail;
 	this.SetEyeColor(Color.blue);
 	this.body.SetRace(Race.Fox);
 	this.body.height.base      = 157;
 	this.body.weigth.base      = 45;
+	TF.SetAppendage(this.body.backSlots, AppendageType.tail, Race.Fox, Color.gold);
 	
 	this.weaponSlot   = Items.Weapons.Dagger;
 	
@@ -419,7 +423,11 @@ Scenes.Terry.Appearance = function() {
 		tHairCol	: Color.Desc(terry.body.head.hair.color),
 		tEyeCol		: Color.Desc(terry.body.head.eyes.color),
 		tEarDesc	: function() { return terry.body.EarDesc(); },
+		tToungeDesc	: terry.body.TongueDesc(),
+		tToungeTipDesc : terry.body.TongueTipDesc(),
 		tbreastDesc : function() { return terry.FirstBreastRow().Short(); },
+		tBellyDesc	: function() { return terry.body.StomachDesc(); },
+		tTailDesc	: terry.HasTail() ? function() { return terry.HasTail().Long(); } : "",
 		tcockDesc : function() { return terry.MultiCockDesc(); },
 		tcockAdj : function() { return terry.FirstCock().Desc().adj; },
 		tcockLen : terry.FirstCock().Desc().len,
