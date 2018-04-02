@@ -219,10 +219,13 @@ Body.prototype.SetBodyColor = function(color) {
 	// Skip vagina
 	for(var i=0,j=this.breasts.length; i<j; i++)
 		this.breasts[i].color = color;
-	for(var i=0,j=this.arms.length; i<j; i++)
+	// Arms and legs no longer uses Array?
+	/*for(var i=0,j=this.arms.length; i<j; i++)
 		this.arms[i].color = color;
 	for(var i=0,j=this.legs.length; i<j; i++)
-		this.legs[i].color = color;
+		this.legs[i].color = color;*/
+	this.arms.color = color;
+	this.legs.color = color;
 }
 
 Body.prototype.SetHairColor = function(color) {
