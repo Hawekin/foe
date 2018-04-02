@@ -329,6 +329,14 @@ Body.prototype.SkinDesc = function(part) {
 	return ret + "skin";
 }
 
+BodyPart.prototype.SkinAdjective = function(part){
+	if(BodyPart.HasScales(this.race))return "scaled";
+	if(BodyPart.HasSkin(this.race))return "bare";
+	if(BodyPart.HasFur(this.race))return "furred";
+	if(BodyPart.HasFeathers(this.race))return "feathery";
+	if(BodyPart.HasHide(this.race))return "hide";
+}
+
 Body.prototype.HasFur = function(race) {
 	return BodyPart.HasFur(this.torso.race);
 }
