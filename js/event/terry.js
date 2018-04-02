@@ -473,7 +473,29 @@ Scenes.Terry.Appearance = function() {
 	Text.NL();
 	parse["crimson"] = terry.body.head.hair.color == Color.red ? " crimson" : Text.		Parse("[tHairCol]", parse);
 	parse["ocean-blue"] = terry.body.head.eyes.color == Color.blue ? " ocean-blue" : 	Text.Parse("[tEyeCol]", parse);
-	Text.Add(" Two small, delicate [tEarDesc]s sit atop [hisher] head, practically swallowed by a lush mane of [crimson] fur. Well-groomed and clean, Terry doesn’t style [hisher] hair much beyond making a rough effort to tie it back into a ponytail. A prominent forelock drapes [hisher] face, falling almost down onto [hisher] dainty little black nose. Beautiful [ocean-blue] eyes stare out from amidst the hair, always surveying [hisher] surroundings.", parse);
+	switch(terry.body.head.hair.style) {
+		case HairStyle.straight:
+			parse["tHairStyleDesc"] = "much at the moment, and keeps it in a way that makes it fall straight down"
+			break;
+		case HairStyle.wavy:
+			parse["tHairStyleDesc"] = "at all right now, resulting in a wavy and well-kept look";
+			break;
+		case HairStyle.ponytail:
+			parse["tHairStyleDesc"] = "much beyond making a rough effort to tie it back into a ponytail";
+			break;
+		case HairStyle.shaggy:
+			parse["tHairStyleDesc"] = "at all right now, resulting in a shaggy but well-kept look";
+			break;
+		case HairStyle.curly:
+			parse["tHairStyleDesc"] = "at all right now, resulting in a curly and well-kept look";
+			break;
+		case HairStyle.braid:
+			parse["tHairStyleDesc"] = "much beyond making a rough effort to tie it back into a loose braid";
+			break;
+		default:
+	}	
+	Text.Add(" Two small, delicate [tEarDesc]s sit atop [hisher] head, practically swallowed by a lush mane of [crimson] fur. Well-groomed and clean, Terry doesn’t style [hisher] hair [tHairStyleDesc].", parse);
+	Text.Add(" A prominent forelock drapes [hisher] face, falling almost down onto [hisher] dainty little black nose. Beautiful [ocean-blue] eyes stare out from amidst the hair, always surveying [hisher] surroundings.", parse);
 	Text.NL();
 	if(terry.Relation() < 30)
 		Text.Add("Once [heshe] realizes you’re checking [himher] out, Terry immediately looks away with an indignant huff. Seems like [heshe]’s not too comfortable with your inspection.", parse);
