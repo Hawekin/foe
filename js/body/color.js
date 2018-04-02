@@ -36,7 +36,7 @@ Color.Desc = function(col) {
 	case Color.green:    return "green";
 	case Color.blue:     return "blue";
 	case Color.silver:   return "silver";
-	case Color.gold:     return "gold";
+	case Color.gold:     return "golden";
 	case Color.bronze:   return "bronze";
 	case Color.orange:   return "orange";
 	case Color.brown:    return "brown";
