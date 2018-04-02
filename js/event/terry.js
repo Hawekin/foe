@@ -420,8 +420,11 @@ Scenes.Terry.Appearance = function() {
 		trueGender : Gender.Desc(terry.Gender()),
 		tRace	: terry.Race().name,
 		tRaceNoun	: function() { return terry.body.RaceStr(); },
-		tHairCol	: Color.Desc(terry.body.head.hair.color),
-		tEyeCol		: Color.Desc(terry.body.head.eyes.color),
+		tHairCol	: terry.body.head.hair.color == Color.red ? 
+			" crimson" : Color.Desc(terry.body.head.hair.color),
+		tHairLenDesc: terry.body.head.hair.LenDesc(),
+		tEyeCol		: terry.body.head.eyes.color == Color.blue ? 
+			" ocean-blue" : Color.Desc(terry.body.head.eyes.color),
 		tEarDesc	: function() { return terry.body.EarDesc(); },
 		tToungeDesc	: terry.body.TongueDesc(),
 		tToungeTipDesc : terry.body.TongueTipDesc(),
@@ -434,12 +437,14 @@ Scenes.Terry.Appearance = function() {
 		tcockThi : terry.FirstCock().Desc().thickness,
 		tcockRace : terry.FirstCock().race.name,
 		tballsDesc : function() { return terry.Balls().Short(); }
+		
+		
 	};
 	
 	Text.Clear();
 	Text.Add("You take a closer look at Terry.", parse);
 	Text.NL();
-	Text.Add("Terry is a [trueGender] [tRace], a former thief that you 'rescued' from the jail in Rigard.", parse);
+	Text.Add("Terry is a [trueGender] [tRaceNoun], a former thief that you 'rescued' from the jail in Rigard.", parse);
 	if(terry.Gender() == Gender.male && terry.PronounGender() != Gender.male)
 		Text.Add(" Though he’s really a male, you chose to refer to him as a 'she'.", parse);
 	else if(terry.Gender() == Gender.female && terry.PronounGender() != Gender.female)
@@ -471,14 +476,13 @@ Scenes.Terry.Appearance = function() {
 		}
 	}
 	Text.NL();
-	parse["crimson"] = terry.body.head.hair.color == Color.red ? " crimson" : Text.		Parse("[tHairCol]", parse);
-	parse["ocean-blue"] = terry.body.head.eyes.color == Color.blue ? " ocean-blue" : 	Text.Parse("[tEyeCol]", parse);
+
 	switch(terry.body.head.hair.style) {
 		case HairStyle.straight:
 			parse["tHairStyleDesc"] = "much at the moment, and keeps it in a way that makes it fall straight down"
 			break;
 		case HairStyle.wavy:
-			parse["tHairStyleDesc"] = "at all right now, resulting in a wavy and well-kept look";
+			parse["tHairStyleDesc"] = "at all right now, resulting in a wavy but well-kept look";
 			break;
 		case HairStyle.ponytail:
 			parse["tHairStyleDesc"] = "much beyond making a rough effort to tie it back into a ponytail";
@@ -487,24 +491,24 @@ Scenes.Terry.Appearance = function() {
 			parse["tHairStyleDesc"] = "at all right now, resulting in a shaggy but well-kept look";
 			break;
 		case HairStyle.curly:
-			parse["tHairStyleDesc"] = "at all right now, resulting in a curly and well-kept look";
+			parse["tHairStyleDesc"] = "at all right now, resulting in a curly but well-kept look";
 			break;
 		case HairStyle.braid:
 			parse["tHairStyleDesc"] = "much beyond making a rough effort to tie it back into a loose braid";
 			break;
 		default:
 	}	
-	Text.Add(" Two small, delicate [tEarDesc]s sit atop [hisher] head, practically swallowed by a lush mane of [crimson] fur. Well-groomed and clean, Terry doesn’t style [hisher] hair [tHairStyleDesc].", parse);
-	Text.Add(" A prominent forelock drapes [hisher] face, falling almost down onto [hisher] dainty little black nose. Beautiful [ocean-blue] eyes stare out from amidst the hair, always surveying [hisher] surroundings.", parse);
+	Text.Add(" Two small, delicate [tEarDesc]s sit atop [hisher] head, practically swallowed by a lush mane of [tHairCol] fur. Well-groomed and clean, Terry doesn’t style [hisher] [tHairLenDesc] hair [tHairStyleDesc].", parse);
+	Text.Add(" A prominent forelock drapes [hisher] face, falling almost down onto [hisher] dainty little black nose. Beautiful [tEyeCol] eyes stare out from amidst the hair, always surveying [hisher] surroundings.", parse);
 	Text.NL();
 	if(terry.Relation() < 30)
 		Text.Add("Once [heshe] realizes you’re checking [himher] out, Terry immediately looks away with an indignant huff. Seems like [heshe]’s not too comfortable with your inspection.", parse);
 	else if(terry.Relation() < 60)
 		Text.Add("Terry grins nervously, once [heshe] realizes you’re checking [himher] out. Aside from [hisher] apparent nervousness, [heshe] makes no move to block your view.", parse);
 	else
-		Text.Add("The [foxvixen]’s eyes dart toward you and as your gaze meets [hishers], [heshe] smiles. Terry adjusts [hisher] hair a bit and straightens [hisher] posture as [heshe] stretches languidly, giving you a perfect, unobstructed view of [himher]self.", parse);
+		Text.Add("The [foxvixen]’s eyes dart toward you and as your gaze meets [hishers], [heshe] smiles. Terry adjusts [hisher] [tHairCol] [tHairLenDesc] hair a bit and straightens [hisher] posture as [heshe] stretches languidly, giving you a perfect, unobstructed view of [himher]self.", parse);
 	Text.NL();
-	Text.Add("Despite the crimson mane atop the [foxvixen]’s head, the rest of [hisher] fur is a very different color; golden yellow offsetting white. Though most of [hisher] face is pure white, a large ring of gold around each eye blurs together over the bridge of the nose, creating a very domino mask-like effect. [HisHer] ears are, likewise, pure gold on the outside and pure white on the inside. White gives way to gold at [hisher] neck, and you know for a fact that most of Terry’s fur is gold; only on [hisher] forelimbs, legs from knees to ankle, stomach, buttocks, and the very tip of [hisher] tail does the white return.", parse);
+	Text.Add("Despite the [tHairCol] mane atop the [foxvixen]’s head, the rest of [hisher] fur is a very different color; golden yellow offsetting white. Though most of [hisher] face is pure white, a large ring of gold around each eye blurs together over the bridge of the nose, creating a very domino mask-like effect. [HisHer] [tEarDesc]s are, likewise, pure gold on the outside and pure white on the inside. White gives way to gold at [hisher] neck, and you know for a fact that most of Terry’s fur is gold; only on [hisher] forelimbs, legs from knees to ankle, stomach, buttocks, and the very tip of [hisher] tail does the white return.", parse);
 	Text.NL();
 	Text.Add("Following the fur leads your gaze down to Terry’s chest. ", parse);
 	if(terry.Cup() > Terry.Breasts.Flat) {
