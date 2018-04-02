@@ -87,3 +87,27 @@ Hair.prototype.Long = function() {
 			return "ground-dragging, " + style;
 	}
 }
+		
+		
+
+Hair.prototype.LenDesc = function() {
+	var len = this.length.Get();
+	if (len < 1)
+		return "stubble";
+	else if(len < 10)
+		return "short";
+	else if(len < 20)
+		return "medium length";
+	else if(len < 30)
+		return "shoulder-length";
+	else if(len < 50)
+		return "long";
+	else if(len < 70)
+		return "waist-length";
+	else if(len < 100)
+		return "ass-length";
+	else if(len < 140)
+		return "knee-length";
+	else
+		return "ground-dragging";
+}
