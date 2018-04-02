@@ -214,13 +214,18 @@ Items.Lobos.Short = function() { return "A bottle of Lobos"; }
 Items.Lobos.Long = function() { return "A bottle labeled Lobos with the picture of a wolf on it. The fluid within is opaque, and dullish gray."; }
 Items.Lobos.recipe = [{it: Items.CanisRoot}, {it: Items.WolfFang}, {it: Items.Wolfsbane}];
 // Effects
+Items.Lobos.PushEffect(TF.ItemEffects.SetBody, {odds: 0.3, race: Race.Wolf, str: "a lupine body"});
+Items.Lobos.PushEffect(TF.ItemEffects.SetFace, {odds: 0.2, race: Race.Wolf, str: "a lupine face"});
+Items.Lobos.PushEffect(TF.ItemEffects.SetTongue, {odds: 0.2, race: Race.Wolf, str: "a wolf-like tounge"});
+Items.Lobos.PushEffect(TF.ItemEffects.SetArms, {odds: 0.2, race: Race.Wolf, str: "lupine arms"});
+Items.Lobos.PushEffect(TF.ItemEffects.SetLegs, {odds: 0.2, race: Race.Wolf, str: "lupine legs"});
 Items.Lobos.PushEffect(TF.ItemEffects.SetCock, {odds: 0.4, race: Race.Wolf, str: "a wolf cock"});
 Items.Lobos.PushEffect(TF.ItemEffects.SetKnot, {odds: 0.4, value: true, num: 1});
 Items.Lobos.PushEffect(TF.ItemEffects.SetCover, {odds: 0.4, value: Genitalia.Cover.Sheath});
 Items.Lobos.PushEffect(TF.ItemEffects.RemHorn, {odds: 0.2, count: 2});
 Items.Lobos.PushEffect(TF.ItemEffects.RemAntenna, {odds: 0.2, count: 2});
 Items.Lobos.PushEffect(TF.ItemEffects.SetEars, {odds: 0.4, race: Race.Wolf, str: "wolf ears"});
-Items.Lobos.PushEffect(TF.ItemEffects.SetTail, {odds: 0.4, race: Race.Wolf, color: Color.gray, str: "a gray, fluffy wolf tail!"});
+Items.Lobos.PushEffect(TF.ItemEffects.SetTail, {odds: 0.3, race: Race.Wolf, color: Color.gray, str: "a gray, fluffy wolf tail!"});
 Items.Lobos.PushEffect(TF.ItemEffects.IncStr, {odds: 0.4, ideal: 30, max: 1});
 Items.Lobos.PushEffect(TF.ItemEffects.IncSta, {odds: 0.4, ideal: 30, max: 1});
 Items.Lobos.PushEffect(TF.ItemEffects.IncDex, {odds: 0.4, ideal: 30, max: 1});
