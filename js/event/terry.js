@@ -518,7 +518,7 @@ Scenes.Terry.Appearance = function() {
 	else
 		Text.Add("The [foxvixen]’s eyes dart toward you and as your gaze meets [hishers], [heshe] smiles. Terry adjusts [hisher] [tHairCol] [tHairLenDesc] hair a bit and straightens [hisher] posture as [heshe] stretches languidly, giving you a perfect, unobstructed view of [himher]self.", parse);
 	Text.NL();
-	Text.Add("Despite the [tHairCol] mane atop the [foxvixen]’s head, the rest of [hisher] fur is a very different color; a [tBodyCol] hue offsetting white. Though most of [hisher] face is pure white, a large ring of gold around each eye blurs together over the bridge of the nose, creating a very domino mask-like effect. [HisHer] [tEarDesc]s are [tEarCol] on the outside and pure white on the inside. White gives way to the [tHeadCol] color at [hisher] neck, and you know for a fact that most of Terry’s fur is [tBodyCol]; only on [hisher] forelimbs, legs from knees to ankle, stomach, ", parse);
+	Text.Add("Despite the [tHairCol] mane atop the [tRaceNoun] head, the rest of [hisher] fur is a very different color; a [tBodyCol] hue offsetting white. Though most of [hisher] face is pure white, a large ring of gold around each eye blurs together over the bridge of the nose, creating a very domino mask-like effect. [HisHer] [tEarDesc]s are [tEarCol] on the outside and pure white on the inside. White gives way to the [tHeadCol] color at [hisher] neck, and you know for a fact that most of Terry’s fur is [tBodyCol]; only on [hisher] forelimbs, legs from knees to ankle, stomach, ", parse);
 	if(terry.HasTail()) {
 		Text.Add("buttocks, and the very tip of [hisher] tail does the white return.", parse);
 	} else {
