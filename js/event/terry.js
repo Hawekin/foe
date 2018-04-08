@@ -433,6 +433,9 @@ Scenes.Terry.Appearance = function() {
 		tEarCol		: Color.Desc(terry.body.head.ears.color),
 		tToungeDesc	: terry.body.TongueDesc(),
 		tToungeTipDesc : terry.body.TongueTipDesc(),
+		tWingDesc	: terry.HasWings() ? terry.HasWings().Long() : "",
+		tWingAdj	: terry.HasWings() ? terry.HasWings().SkinAdjective() : "",
+		tWingCol	: Color.Desc(terry.HasWings() ? terry.HasWings().color : 0),
 		tBodyCol	: Color.Desc(terry.body.torso.color),
 		tbreastDesc : function() { return terry.FirstBreastRow().Short(); },
 		tBellyDesc	: function() { return terry.body.StomachDesc(); },
@@ -504,7 +507,7 @@ Scenes.Terry.Appearance = function() {
 			break;
 		default:
 	}	
-	Text.Add(" Two small [tEarCol], delicate [tEarDesc]s sit atop [hisher] head, practically swallowed by a lush mane of [tHairCol] fur.", parse);
+	Text.Add(" Two small delicate, [tEarDesc]s sit atop [hisher] head, practically swallowed by a lush mane of [tHairCol] fur.", parse);
 	if(terry.HasHorns()){
 		Text.Add(" [HisHer] newly attained [tHornShort] protrudes from [hisher] head, granting Terry a more imposing visage.", parse);
 	}
@@ -523,8 +526,12 @@ Scenes.Terry.Appearance = function() {
 		Text.Add("buttocks, and the very tip of [hisher] tail does the white return.", parse);
 	} else {
 		Text.Add("and buttocks does the white return.", parse);
-	}
+	}	
 	Text.NL();
+	if(terry.HasWings()){
+		Text.Add("[HisHer] newly attained [tWingDesc] catches your attention. Sticking out from between [hisher] shoulderblades, they stretch from waist to about two feet above [hisher] head. Similiar to the rest of Terry they they come with white details, turning [tWingCol] around the [tWingAdj] segments.", parse);
+		Text.NL();
+	}
 	Text.Add("Following the fur leads your gaze down to Terry’s chest. ", parse);
 	if(terry.Cup() > Terry.Breasts.Flat) {
 		parse["c"] = terry.FirstCock() ? Text.Parse(", contrasting the [tcockDesc] between [hisher] legs", parse) : "";
