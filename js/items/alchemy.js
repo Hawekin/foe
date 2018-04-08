@@ -334,6 +334,7 @@ Items.Avia.PushEffect(TF.ItemEffects.SetFace, {odds: 0.2, race: Race.Avian, str:
 Items.Avia.PushEffect(TF.ItemEffects.SetTongue, {odds: 0.2, race: Race.Avian, str: "a bird-like tounge"});
 Items.Avia.PushEffect(TF.ItemEffects.SetArms, {odds: 0.2, race: Race.Avian, str: "avian arms"});
 Items.Avia.PushEffect(TF.ItemEffects.SetLegs, {odds: 0.2, race: Race.Avian, str: "avian legs"});
+Items.Avia.PushEffect(TF.ItemEffects.SetEars, {odds: 0.4, race: Race.Avian, str: "feathery avian ears"});
 Items.Avia.PushEffect(TF.ItemEffects.SetCock, {odds: 0.4, race: Race.Avian, str: "an avian cock"});
 Items.Avia.PushEffect(TF.ItemEffects.RemHorn, {odds: 0.2, count: 2});
 Items.Avia.PushEffect(TF.ItemEffects.RemTail, {odds: 0.2, count: 1});

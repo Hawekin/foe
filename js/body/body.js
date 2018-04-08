@@ -335,6 +335,7 @@ BodyPart.prototype.SkinAdjective = function(part){
 	if(BodyPart.HasFur(this.race))return "furred";
 	if(BodyPart.HasFeathers(this.race))return "feathery";
 	if(BodyPart.HasHide(this.race))return "hide";
+	if(this.race.isRace(Race.Insect))return "insectiod";
 }
 
 Body.prototype.HasFur = function(race) {
@@ -372,6 +373,7 @@ Body.prototype.EarDesc = function(plural) {
 	if(ears.isRace(Race.Reptile)) ret = "pointed, scaled ear";
 	else if(ears.isRace(Race.Elf, Race.Dryad, Race.Demon)) ret = "pointed elfin ear";
 	else if(ears.isRace(Race.Rabbit))  ret = "floppy rabbit ear";
+	else if(ears.isRace(Race.Avian))  ret = "feathery avian ear";
 	else if(ears.isRace(Race.Human))   ret = "ear";
 	else ret = ears.qShort() + " ear";
 	
