@@ -437,6 +437,7 @@ Scenes.Terry.Appearance = function() {
 		tWingDesc	: terry.HasWings() ? terry.HasWings().Long() : "",
 		tWingAdj	: terry.HasWings() ? terry.HasWings().SkinAdjective() : "",
 		tWingCol	: Color.Desc(terry.HasWings() ? terry.HasWings().color : 0),
+		tBodySkinN	: terry.body.torso.SkinNoun(),
 		tBodyCol	: Color.Desc(terry.body.torso.color),
 		tbreastDesc : function() { return terry.FirstBreastRow().Short(); },
 		tBellyDesc	: function() { return terry.body.StomachDesc(); },
@@ -522,7 +523,7 @@ Scenes.Terry.Appearance = function() {
 	else
 		Text.Add("The [foxvixen]’s eyes dart toward you and as your gaze meets [hishers], [heshe] smiles. Terry adjusts [hisher] [tHairCol] [tHairLenDesc] hair a bit and straightens [hisher] posture as [heshe] stretches languidly, giving you a perfect, unobstructed view of [himher]self.", parse);
 	Text.NL();
-	Text.Add("Despite the [tHairCol] mane atop the [tRaceNoun] head, the rest of [hisher] fur is a very different color; a [tBodyCol] hue offsetting white. Though most of [hisher] face is pure white, a large ring of gold around each eye blurs together over the bridge of the nose, creating a very domino mask-like effect. [HisHer] [tEarDesc]s are [tEarCol] on the outside and pure white on the inside. White gives way to the [tHeadCol] color at [hisher] neck, and you know for a fact that most of Terry’s fur is [tBodyCol]; only on [hisher] forelimbs, legs from knees to ankle, stomach, ", parse);
+	Text.Add("Despite the [tHairCol] mane atop the [tRaceNoun] head, the rest of [hisher] body is different in color; a [tBodyCol] hue offsetting white. Though most of [hisher] face is pure white, a large ring of gold around each eye blurs together over the bridge of the nose, creating a very domino mask-like effect. [HisHer] [tEarDesc]s are [tEarCol] on the outside and pure white on the inside. White gives way to the [tHeadCol] color at [hisher] neck, and most of Terry’s [tBodySkinN] is [tBodyCol] on [hishers] torso; only on [hisher] forelimbs, legs from knees to ankle, stomach, ", parse);
 	if(terry.HasTail()) {
 		Text.Add("buttocks, and the very tip of [hisher] tail does the white return.", parse);
 	} else {
@@ -533,7 +534,7 @@ Scenes.Terry.Appearance = function() {
 		Text.Add("[HisHer] newly attained [tWingDesc] catches your attention. Sticking out from between [hisher] shoulderblades, they stretch from waist to about two feet above [hisher] head. Similiar to the rest of Terry they they come with white details, turning [tWingCol] around the [tWingAdj] segments.", parse);
 		Text.NL();
 	}
-	Text.Add("Following the fur leads your gaze down to Terry’s chest. ", parse);
+	Text.Add("Following the [tBodySkinN] leads your gaze down to Terry’s chest. ", parse);
 	if(terry.Cup() > Terry.Breasts.Flat) {
 		parse["c"] = terry.FirstCock() ? Text.Parse(", contrasting the [tcockDesc] between [hisher] legs", parse) : "";
 		Text.Add("A pair of [tbreastDesc] bulge noticeably atop Terry’s chest[c]. ", parse);
@@ -582,7 +583,7 @@ Scenes.Terry.Appearance = function() {
 			Text.Add("You smile slightly and shake your head. Terry really needs to stop being so shy; [heshe] has a perfectly nice set of breasts, so naturally you’re going to look at them.", parse);
 		}
 		else {
-			Text.Add("<i>“I don’t see why you’re so fascinated with my chest. I got nothing but fur here,”</i> [heshe] states nonchalantly.", parse);
+			Text.Add("<i>“I don’t see why you’re so fascinated with my chest. I got nothing but [tBodySkinN] here,”</i> [heshe] states nonchalantly.", parse);
 			Text.NL();
 			Text.Add("You simply grin back; it’s just part of [hisher] charms, after all.", parse);
 		}
@@ -2222,7 +2223,7 @@ Scenes.Terry.TalkCompliment = function() {
 				Text.Clear();
 				Text.Add("With a grin, you invite Terry to follow you and lead [himher] toward a less public place to conduct your ‘show and tell’.", parse);
 				Text.NL();
-				Text.Add("No sooner are you out of sight, the petite [foxvixen] spins you, nearly pouncing [hisher] way into your arms as [heshe] wraps [hisher] lips around yours in a passionate kiss. [HisHer] hair and fur become a disheveled mess the first few seconds, not that either of you mind it. When you finally break away, the smiling [foxvixen] takes a step back to look you over. <i>“I figured just looking can be a bit boring. I think we’d both prefer a more hands-on approach, don’t you think?”</i>", parse);
+				Text.Add("No sooner are you out of sight, the petite [foxvixen] spins you, nearly pouncing [hisher] way into your arms as [heshe] wraps [hisher] lips around yours in a passionate kiss. [HisHer] hair become a disheveled mess the first few seconds, not that either of you mind it. When you finally break away, the smiling [foxvixen] takes a step back to look you over. <i>“I figured just looking can be a bit boring. I think we’d both prefer a more hands-on approach, don’t you think?”</i>", parse);
 				Text.NL();
 				if(terry.Slut() >= 60)
 					Text.Add("<i>“I know what parts <b>I</b> want, but what parts do <b>you</b> want, my lovely [mastermistress]?”</i> Terry asks, giving you a smoldering look.", parse);
@@ -2435,7 +2436,7 @@ Scenes.Terry.SkinshipPromptChoices = function() {
 			
 			Scenes.Terry.Prompt();
 		}, enabled : true,
-		tooltip : Text.Parse("Terry’s fur looks so soft to the touch. It makes you want to cuddle the [foxvixen].", parse)
+		tooltip : Text.Parse("Terry’s [tBodySkinN] looks so soft to the touch. It makes you want to cuddle the [foxvixen].", parse)
 	});
 	options.push({ nameStr : "Brush Hair",
 		func : function() {
