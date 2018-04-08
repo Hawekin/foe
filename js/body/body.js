@@ -323,13 +323,20 @@ Body.prototype.SkinDesc = function(part) {
 	
 	if(part.isRace(Race.Reptile)) return ret + "scales";
 	if(part.isRace(Race.Avian))   return ret + "feathers";
-	if(part.isRace(Race.Cow, Race.Horse)) return ret + "hide";
+	if(part.isRace(Race.Cow, Race.Horse, Race.Deer)) return ret + "hide";
 	if(part.isRace(Race.Canine, Race.Feline, Race.Goat, Race.Sheep, Race.Musteline, Race.Rabbit)) return ret + "fur";
 	if(part.isRace(Race.Goo))     return ret + "slime";
 	return ret + "skin";
 }
-
-BodyPart.prototype.SkinAdjective = function(part){
+BodyPart.prototype.SkinNoun = function(){
+	if(this.race.isRace(Race.Reptile)) return "scales";
+	if(this.race.isRace(Race.Avian))   return "feathers";
+	if(this.race.isRace(Race.Cow, Race.Horse, Race.Deer)) return "hide";
+	if(this.race.isRace(Race.Canine, Race.Feline, Race.Goat, Race.Sheep, Race.Musteline, Race.Rabbit)) return "fur";
+	if(this.race.isRace(Race.Goo)) return "slime";
+	return "skin";
+}
+BodyPart.prototype.SkinAdjective = function(){
 	if(BodyPart.HasScales(this.race))return "scaled";
 	if(BodyPart.HasSkin(this.race))return "bare";
 	if(BodyPart.HasFur(this.race))return "furred";
