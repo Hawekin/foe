@@ -411,7 +411,8 @@ Scenes.Terry.AppearancePlus = function() {
 
 Scenes.Terry.Appearance = function() {
 	var parse = {
-		foxvixen : terry.mfPronoun("fox", "vixen"),
+		//foxvixen : terry.mfPronoun("fox", "vixen"),
+		foxvixen : terry.Race().name,
 		HeShe   : terry.HeShe(),
 		heshe   : terry.heshe(),
 		HisHer  : terry.HisHer(),
