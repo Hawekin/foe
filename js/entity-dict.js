@@ -43,5 +43,6 @@ Entity.IdToEntity = function(id) {
 	if(id == "aria") return aria;
 	if(id == "ches") return ches;
 	if(id == "sylistraxia") return sylistraxia;
+	if(id == "kindle") return kindle;
 	return null;
 }

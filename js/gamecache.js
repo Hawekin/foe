@@ -37,6 +37,7 @@ InitCache = function() {
 	lei     = new Lei(gameCache.lei);
 	twins   = new Twins(gameCache.twins);
 	room69  = new Room69(gameCache.room69);
+	kindle  = new Kindle(gameCache.kindle);
 
 	chief   = new Chief(gameCache.chief);
 	rosalin = new Rosalin(gameCache.rosalin);
@@ -109,6 +110,7 @@ InitCache = function() {
 	world.EntityStorage.push(twins.rumi);
 	world.EntityStorage.push(twins.rani);
 	world.EntityStorage.push(room69);
+	world.EntityStorage.push(kindle);
 
 	world.EntityStorage.push(chief);
 	world.EntityStorage.push(rosalin);
@@ -440,6 +442,7 @@ GameToCache = function() {
 	gameCache.lei     = lei.ToStorage();
 	gameCache.twins   = twins.ToStorage();
 	gameCache.room69  = room69.ToStorage();
+	gameCache.kindle  = kindle.ToStorage();
 
 	gameCache.outlaws  = outlaws.ToStorage();
 	gameCache.aquilius = aquilius.ToStorage();
